@@ -3,34 +3,17 @@ import { RouteRecordRaw } from 'vue-router';
 import TabsPage from '../views/TabsPage.vue'
 
 const routes: Array<RouteRecordRaw> = [
+  { path: '/', redirect: '/tabs/tab1'},
+  { path: '/todo/', component: () => import('../views/pages/Todo.vue') },
+  { path: '/add/', component: () => import('../views/pages/Add.vue') },
+
   {
-    path: '/',
-    redirect: '/tabs/tab1'
-  },
-  {
-    path: '/todo/',
-    component: () => import('../views/pages/Todo.vue')
-  },
-  {
-    path: '/tabs/',
-    component: TabsPage,
+    path: '/tabs/', component: TabsPage,
     children: [
-      {
-        path: '',
-        redirect: '/tabs/tab1'
-      },
-      {
-        path: 'tab1',
-        component: () => import('@/views/Tab1Page.vue')
-      },
-      {
-        path: 'tab2',
-        component: () => import('@/views/Tab2Page.vue')
-      },
-      {
-        path: 'tab3',
-        component: () => import('@/views/Tab3Page.vue')
-      }
+      { path: '', redirect: '/tabs/tab1'},
+      { path: 'tab1', component: () => import('@/views/Tab1Page.vue')},
+      { path: 'tab2', component: () => import('@/views/Tab2Page.vue')},
+      { path: 'tab3', component: () => import('@/views/Tab3Page.vue')}
     ]
   }
 ]
