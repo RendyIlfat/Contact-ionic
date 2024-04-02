@@ -66,11 +66,14 @@
 </template>
     
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { data } from "../../services/contacts";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 import { save, arrowBackOutline, heart, trash, personCircleOutline, add, colorPalette, document, globe } from 'ionicons/icons';
 
+const isEdit = ref(false)
+
+const id = ref()
 const name = ref('')
 const email = ref('')
 const address = ref('')
@@ -79,25 +82,67 @@ const gender = ref(1)
 const isFav = ref(false)
 
 const router = useRouter()
+const route = useRoute()
+
+onMounted(() => {
+    const _id = route.params?.id
+
+    if (_id) {
+        const val = data.value.find(item => item.id == _id)
+
+        console.log('data yang di edit', val)
+
+        isEdit.value = true
+        id.value = val.id
+        name.value = val.name
+        email.value = val.email
+        address.value = val.address
+        phone.value = val.phone
+        gender.value = val.gender
+        isFav.value = val.isFav
+
+    }
+})
 
 const back = () => {
   router.back()
 }
 
 const simpan = () => {
-    const contact = {
-        name: name.value,
-        email: email.value,
-        address: address.value,
-        phone: phone.value,
-        gender: gender.value,
-        isFav: isFav.value,
 
+    if (isEdit.value) {
+        // perintah edit
+        const contact = {
+            id: id.value,
+            name: name.value,
+            email: email.value,
+            address: address.value,
+            phone: phone.value,
+            gender: gender.value,
+            isFav: isFav.value
+        }
+
+        const index = data.value.findIndex(item => item.id == contact.id)
+
+        data.value[index] = contact
+
+    } else {
+        // perintah add
+
+        const contact = {
+            id: Date.now(),
+            name: name.value,
+            email: email.value,
+            address: address.value,
+            phone: phone.value,
+            gender: gender.value,
+            isFav: isFav.value
+        }
+
+        data.value.push(contact)
     }
+    
 
-    console.log(contact)
-
-    data.value.push(contact)
 
     router.back()
 }
