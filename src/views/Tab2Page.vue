@@ -10,13 +10,13 @@
           
           <ion-list>
 
-            <ion-item-sliding>
+            <ion-item-sliding v-for="i in data">
               <ion-card>
                 <ion-item>
                   <ion-label>
-                    <h2>Nama Kontak</h2>
-                    <p>Nomor</p>
-                    <p>Email</p>
+                    <h2>{{ i.name }}</h2>
+                    <p>{{ i.phone }}</p>
+                    <p>{{ i.email }}</p>
                   </ion-label>
                 </ion-item>
 
@@ -27,65 +27,19 @@
                 </ion-item-options>
               </ion-card>
             </ion-item-sliding>
-
-            <ion-item-sliding>
-              <ion-card>
-                <ion-item>
-                  <ion-label>
-                    <h2>Nama Kontak</h2>
-                    <p>Nomor</p>
-                    <p>Email</p>
-                  </ion-label>
-                </ion-item>
-
-                <ion-item-options>
-                  <ion-item-option color="danger">
-                    Hapus
-                  </ion-item-option>
-                </ion-item-options>
-              </ion-card>
-              </ion-item-sliding>
             
           </ion-list>
-
-          <!-- <ion-card>
-            <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
-              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            </ion-card-header>
-
-            <ion-card-content>
-              Here's a small text description for the card content. Nothing more, nothing less.
-            </ion-card-content>
-          </ion-card> -->
 
         </ion-content>
 
   </ion-page>
 
-  </template>
+</template>
   
   <script setup lang="ts">
+    import { data } from "../services/contacts";
     import { heart, trash, personCircleOutline, add, colorPalette, document, globe } from 'ionicons/icons';
 
-    // export default defineComponent({
-    //   components: {
-    //     IonButtons,
-    //     IonContent,
-    //     IonHeader,
-    //     IonMenu,
-    //     IonMenuButton,
-    //     IonPage,
-    //     IonTitle,
-    //     IonToolbar,
-
-    //     IonFab, IonFabButton, IonFabList
-    //   },
-      
-    //   setup() {
-    //   return { personCircleOutline, add, colorPalette, document, globe };
-    //   },
-    // });
   </script>
 
   <style scoped>

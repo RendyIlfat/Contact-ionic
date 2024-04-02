@@ -18,6 +18,21 @@
                 </ion-toolbar>
             </ion-header>
             
+            <ion-button @dblclick="showAlert" expand="block" fill="solid">
+                Click me
+            </ion-button>
+
+            <ion-button @click="showAlert" expand="block" fill="solid">
+                Click me
+            </ion-button>
+
+            <ion-button expand="block" fill="solid">
+                Click me
+            </ion-button>
+
+            <ion-button expand="block" fill="solid">
+                Click me
+            </ion-button>
         
         
         </ion-content>
@@ -32,6 +47,10 @@ const router = useRouter()
 
 const back = () => {
   router.back()
+}
+
+const showAlert = () => {
+    alert('tombol di tekan')
 }
 
 </script>

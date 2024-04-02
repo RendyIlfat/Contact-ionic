@@ -24,13 +24,13 @@
               <ion-label>Daftar Kontak</ion-label>
             </ion-list-header>
 
-            <ion-item-sliding>
+            <ion-item-sliding v-for="i in data">
               <ion-card>
                 <ion-item>
                   <ion-label>
-                    <h2>Nama Kontak</h2>
-                    <p>Nomor</p>
-                    <p>Email</p>
+                    <h2>{{ i.name }}</h2>
+                    <p>{{ i.phone }}</p>
+                    <p>{{ i.email }}</p>
                   </ion-label>
                 </ion-item>
 
@@ -44,40 +44,8 @@
                 </ion-item-options>
               </ion-card>
             </ion-item-sliding>
-
-            <ion-item-sliding>
-              <ion-card>
-                <ion-item>
-                  <ion-label>
-                    <h2>Nama Kontak</h2>
-                    <p>Nomor</p>
-                    <p>Email</p>
-                  </ion-label>
-                </ion-item>
-
-                <ion-item-options>
-                  <ion-item-option>
-                    <ion-icon slot="start" :icon="heart"></ion-icon>
-                  </ion-item-option>
-                  <ion-item-option color="danger">
-                    <ion-icon slot="start" :icon="trash"></ion-icon>
-                  </ion-item-option>
-                </ion-item-options>
-              </ion-card>
-              </ion-item-sliding>
             
           </ion-list>
-
-          <!-- <ion-card>
-            <ion-card-header>
-              <ion-card-title>Card Title</ion-card-title>
-              <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-            </ion-card-header>
-
-            <ion-card-content>
-              Here's a small text description for the card content. Nothing more, nothing less.
-            </ion-card-content>
-          </ion-card> -->
 
           <ion-fab slot="fixed" horizontal="end" vertical="bottom" style="bottom: 30px">
             <ion-fab-button>
@@ -103,6 +71,7 @@
   </template>
   
   <script setup lang="ts">
+    import { data } from "../services/contacts";
     import { useRouter } from "vue-router";
     import { heart, trash, personCircleOutline, add, colorPalette, document, globe } from 'ionicons/icons';
 
