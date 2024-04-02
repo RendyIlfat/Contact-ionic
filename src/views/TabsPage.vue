@@ -14,9 +14,9 @@
           <ion-label>Favorite</ion-label>
         </ion-tab-button>
 
-        <ion-tab-button tab="library" href="/library">
-          <ion-icon :icon="library" />
-          <ion-label>Library</ion-label>
+        <ion-tab-button tab="tab3" href="/tabs/tab3">
+          <ion-icon :icon="settings" />
+          <ion-label>Setting</ion-label>
         </ion-tab-button>
 
         <ion-tab-button tab="search" href="/search">
@@ -28,22 +28,7 @@
   </ion-page>
 </template>
 
-<script lang="ts">
-  import { IonPage, IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonLabel, IonIcon } from '@ionic/vue';
+<script setup lang="ts">
 
-  import { personCircleOutline, starOutline, playCircle, radio, library, search } from 'ionicons/icons';
-
-  export default {
-    components: { IonPage, IonTabs, IonRouterOutlet, IonTabBar, IonTabButton, IonLabel, IonIcon },
-    data() {
-      return {
-        personCircleOutline,
-        starOutline,
-        playCircle,
-        radio,
-        library,
-        search,
-      };
-    },
-  };
+  import { settings, personCircleOutline, starOutline, playCircle, radio, library, search } from 'ionicons/icons';
 </script>

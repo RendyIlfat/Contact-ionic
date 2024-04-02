@@ -70,13 +70,6 @@
     
 <script setup lang="ts">
 import { useRouter } from "vue-router";
-
-import { IonList, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItemSliding, IonItemOption, IonIcon, IonItem, IonListHeader, IonLabel, IonItemOptions } from '@ionic/vue';
-
-import { IonInput, IonRadio, IonRadioGroup, IonButton, IonSelectOption, IonSelect, IonTextarea, IonButtons, IonContent, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-import { defineComponent } from 'vue';
-
-import { IonFab, IonFabButton, IonFabList } from '@ionic/vue';
 import { arrowBackOutline, heart, trash, personCircleOutline, add, colorPalette, document, globe } from 'ionicons/icons';
 
 const router = useRouter()
@@ -85,24 +78,6 @@ const back = () => {
   router.back()
 }
 
-// export default defineComponent({
-//   components: {
-//     IonButtons,
-//     IonContent,
-//     IonHeader,
-//     IonMenu,
-//     IonMenuButton,
-//     IonPage,
-//     IonTitle,
-//     IonToolbar,
-
-//     IonFab, IonFabButton, IonFabList
-//   },
-  
-//   setup() {
-//   return { personCircleOutline, add, colorPalette, document, globe };
-//   },
-// });
 </script>
 
   

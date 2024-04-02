@@ -104,13 +104,6 @@
   
   <script setup lang="ts">
     import { useRouter } from "vue-router";
-
-    import { IonList, IonCard, IonCardHeader, IonCardTitle, IonCardSubtitle, IonItemSliding, IonItemOption, IonIcon, IonItem, IonListHeader, IonLabel, IonItemOptions } from '@ionic/vue';
-
-    import { IonButtons, IonContent, IonHeader, IonMenu, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
-    import { defineComponent } from 'vue';
-
-    import { IonFab, IonFabButton, IonFabList } from '@ionic/vue';
     import { heart, trash, personCircleOutline, add, colorPalette, document, globe } from 'ionicons/icons';
 
     const router = useRouter()
@@ -119,24 +112,6 @@
       router.push('/add')
     }
 
-    // export default defineComponent({
-    //   components: {
-    //     IonButtons,
-    //     IonContent,
-    //     IonHeader,
-    //     IonMenu,
-    //     IonMenuButton,
-    //     IonPage,
-    //     IonTitle,
-    //     IonToolbar,
-
-    //     IonFab, IonFabButton, IonFabList
-    //   },
-      
-    //   setup() {
-    //   return { personCircleOutline, add, colorPalette, document, globe };
-    //   },
-    // });
   </script>
 
   <style scoped>
