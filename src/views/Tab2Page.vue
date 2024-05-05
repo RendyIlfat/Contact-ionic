@@ -2,87 +2,89 @@
   <ion-page>
     <ion-header>
       <ion-toolbar>
-        <ion-title><h1>Favorite</h1></ion-title>
+        <ion-title>
+          <h1>Favorite</h1>
+        </ion-title>
       </ion-toolbar>
     </ion-header>
 
-        <ion-content> 
-          
-          <ion-list>
+    <ion-content>
 
-            <ion-item-sliding v-for="i in dataFavorite">
-              <ion-card>
-                <ion-item @click="edit(i)">
-                  <ion-label>
-                    <h2>{{ i.name }}</h2>
-                    <p>{{ i.phone }}</p>
-                    <p>{{ i.email }}</p>
-                  </ion-label>
-                </ion-item>
+      <ion-list>
 
-                <ion-item-options>
-                  <ion-item-option color="light">
+        <ion-item-sliding v-for="i in dataFavorite">
+          <ion-card>
+            <ion-item @click="edit(i)">
+              <ion-label>
+                <h2>{{ i.name }}</h2>
+                <p>{{ i.phone }}</p>
+                <p>{{ i.email }}</p>
+              </ion-label>
+            </ion-item>
 
-                    <ion-icon @click="fav(i, false)" v-if="i.isFav" color="danger" slot="icon-only" :icon="heart"></ion-icon>
-                    <ion-icon @click="fav(i, true)" v-else color="danger" slot="icon-only" :icon="heartOutline"></ion-icon>
+            <ion-item-options>
+              <ion-item-option color="light">
 
-                  </ion-item-option>
-                  <ion-item-option @click="hapus(i)" color="light">
-                    <ion-icon color="danger" slot="icon-only" :icon="trash"></ion-icon>
-                  </ion-item-option>
-                </ion-item-options>
-              </ion-card>
-            </ion-item-sliding>
-            
-          </ion-list>
+                <ion-icon @click="fav(i, false)" v-if="i.isFav" color="danger" slot="icon-only" :icon="heart"></ion-icon>
+                <ion-icon @click="fav(i, true)" v-else color="danger" slot="icon-only" :icon="heartOutline"></ion-icon>
 
-        </ion-content>
+              </ion-item-option>
+              <ion-item-option @click="hapus(i)" color="light">
+                <ion-icon color="danger" slot="icon-only" :icon="trash"></ion-icon>
+              </ion-item-option>
+            </ion-item-options>
+          </ion-card>
+        </ion-item-sliding>
+
+      </ion-list>
+
+    </ion-content>
 
   </ion-page>
 
 </template>
-  
-  <script setup lang="ts">
-    import { computed } from "vue";
-    import { data } from "../services/contacts";
-    import { useRouter } from "vue-router";
-    import { heartOutline, heart, trash, personCircleOutline, add, colorPalette, document, globe } from 'ionicons/icons';
 
-    const router = useRouter()
+<script setup lang="ts">
+import { computed } from "vue";
+import { data } from "../services/contacts";
+import { useRouter } from "vue-router";
+import { heartOutline, heart, trash, personCircleOutline, add, colorPalette, document, globe } from 'ionicons/icons';
 
-    const dataFavorite = computed(() => data.value.filter(item => item.isFav == true))
-    
-    const tambah = () => {
-      router.push('/add')
-    }
+const router = useRouter()
 
-    const hapus = (item: any) => {
-      const index = data.value.indexOf(item)
-      data.value.splice(index, 1)
-    }
+const dataFavorite = computed(() => data.value.filter(item => item.isFav == true))
 
-    const edit = (item: any) => {
-      router.push('/add/' + item.id)
-    }
+const tambah = () => {
+  router.push('/add')
+}
 
-    const fav = (item: any, isFav: boolean) => {
-      const index = data.value.findIndex(i => i.id == item.id)
+const hapus = (item: any) => {
+  const index = data.value.indexOf(item)
+  data.value.splice(index, 1)
+}
 
-      data.value[index].isFav = isFav
-    }
-  </script>
+const edit = (item: any) => {
+  router.push('/add/' + item.id)
+}
 
-  <style scoped>
-  ion-card {
-    --background: rgb(97, 97, 97);
-    --color: #9efff0;
-  }
+const fav = (item: any, isFav: boolean) => {
+  const index = data.value.findIndex(i => i.id == item.id)
 
-  ion-card-title {
-    --color: #22dcc0;
-  }
+  data.value[index].isFav = isFav
+}
+</script>
 
-  ion-card-subtitle {
-    --color: #37b8a4;
-  }
-  </style>
+<style scoped>
+ion-card {
+  --background: rgb(97, 97, 97);
+  --color: #9efff0;
+}
+
+ion-card-title {
+  --color: #22dcc0;
+}
+
+ion-card-subtitle {
+  --color: #37b8a4;
+}
+</style>

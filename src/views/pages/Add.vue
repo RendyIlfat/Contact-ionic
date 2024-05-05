@@ -10,8 +10,8 @@
                 <ion-title>Input Contact</ion-title>
             </ion-toolbar>
         </ion-header>
-  
-        <ion-content> 
+
+        <ion-content>
 
             <ion-card>
                 <ion-card-header>
@@ -20,36 +20,36 @@
 
                 <ion-card-content>
 
-                            <ion-list>
-                            
-                                <ion-input label="Nama" v-model="name" label-placement="floating" fill="solid" 
-                                    placeholder="Masukkan Nama"></ion-input>
+                    <ion-list>
 
-                                <ion-input label="Email" v-model="email" label-placement="floating" fill="solid" 
-                                    placeholder="Masukkan Email"></ion-input>
+                        <ion-input label="Nama" v-model="name" label-placement="floating" fill="solid"
+                            placeholder="Masukkan Nama"></ion-input>
 
-                                <ion-input label="Telephone" v-model="phone" label-placement="floating" fill="solid" 
-                                    placeholder="Masukkan Telephone"></ion-input>
-                    
-                                <ion-radio-group>
-                                    <ion-item fill="solid" v-model="gender">
-                                        <ion-radio value="1" justify="start" label placement="end">Laki-laki</ion-radio>
-                                    </ion-item>
-                                    <ion-item fill="solid">
-                                        <ion-radio value="2" justify="start" label placement="end">Perempuan</ion-radio>
-                                    </ion-item>
-                                </ion-radio-group>
-                                
-                            
-                                <ion-select label="Tipe" v-model="isFav" placeholder="Tipe Kontak" fill="solid">
-                                    <ion-select-option value="false">Biasa</ion-select-option>
-                                    <ion-select-option value="true">Favorite</ion-select-option>
-                                </ion-select>
-                                
-                                <ion-textarea label="Alamat" v-model="address" label-placement="floating" fill="solid"
-                                    placeholder="Masukkan Alamat"></ion-textarea>
-                                    
-                            </ion-list>
+                        <ion-input label="Email" v-model="email" label-placement="floating" fill="solid"
+                            placeholder="Masukkan Email"></ion-input>
+
+                        <ion-input label="Telephone" v-model="phone" label-placement="floating" fill="solid"
+                            placeholder="Masukkan Telephone"></ion-input>
+
+                        <ion-radio-group v-model="gender">
+                            <ion-item fill="solid">
+                                <ion-radio :value="1" justify="start" label placement="end">Laki-laki</ion-radio>
+                            </ion-item>
+                            <ion-item fill="solid">
+                                <ion-radio :value="2" justify="start" label placement="end">Perempuan</ion-radio>
+                            </ion-item>
+                        </ion-radio-group>
+
+
+                        <ion-select label="Tipe" v-model="isFav" placeholder="Tipe Kontak" fill="solid">
+                            <ion-select-option :value="false">Biasa</ion-select-option>
+                            <ion-select-option :value="true">Favorite</ion-select-option>
+                        </ion-select>
+
+                        <ion-textarea label="Alamat" v-model="address" label-placement="floating" fill="solid"
+                            placeholder="Masukkan Alamat"></ion-textarea>
+
+                    </ion-list>
 
                 </ion-card-content>
             </ion-card>
@@ -64,7 +64,7 @@
         </ion-footer>
     </ion-page>
 </template>
-    
+
 <script setup>
 import { ref, onMounted } from "vue";
 import { data } from "../../services/contacts";
@@ -105,7 +105,7 @@ onMounted(() => {
 })
 
 const back = () => {
-  router.back()
+    router.back()
 }
 
 const simpan = () => {
@@ -141,7 +141,7 @@ const simpan = () => {
 
         data.value.push(contact)
     }
-    
+
 
 
     router.back()

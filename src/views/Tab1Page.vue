@@ -71,7 +71,7 @@
 
   </ion-page>
 
-  </template>
+</template>
   
   <script setup lang="ts">
     import { data } from "../services/contacts";
